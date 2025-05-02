@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id      Int      @id @default(autoincrement())
+  name    String   @db.VarChar(128)
+  devices Device[]
+}
+
+model Device {
+  id         Int      @id @default(autoincrement())
+  color      String   @db.VarChar(16)
+  partNumber Int
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
