@@ -14,22 +14,27 @@ export const createDevice = async (req: Request, res: Response) => {
   const { color, partNumber, categoryId } = req.body;
 
   if (!color || !/^[a-zA-Z]+$/.test(color) || color.length > 16) {
-    return res
+    res
       .status(400)
       .json({ error: 'Color must be letters only and max 16 characters' });
   }
 
   if (!partNumber || typeof partNumber !== 'number' || partNumber <= 0) {
-    return res
-      .status(400)
-      .json({ error: 'partNumber must be a positive integer' });
+    res.status(400).json({ error: 'partNumber must be a positive integer' });
   }
+  try {
+    const device = await prisma.device.create({
+      data: { color, partNumber, categoryId },
+    });
 
-  const device = await prisma.device.create({
-    data: { color, partNumber, categoryId },
-  });
-
-  res.status(201).json(device);
+    res.status(201).json(device);
+  } catch (error) {
+    if (error.code === 'P2003') {
+      res.status(400).json({ error: 'Invalid category ID' });
+    }
+    res.status(500).json({ error: 'Internal server error' });
+    return;
+  }
 };
 
 export const deleteDevice = async (req: Request, res: Response) => {

@@ -16,7 +16,7 @@ const options: swaggerJsdoc.Options = {
       },
     ],
   },
-  apis: ['./routes/*.ts', './dtos/*.ts'],
+  apis: ['./src/routes/*.ts', './dist/routes/*.js'],
   components: {
     schemas: {
       Category: {
