@@ -2,27 +2,27 @@ version: '3.8'
 
 services:
   backend:
+    platform: linux/amd64
     build:
       context: .
       dockerfile: Dockerfile
     image: jonathanssantiagodev/eldorado-challenge-api
-    environment:
-      NODE_ENV: production
-      DATABASE_URL: 'mysql://user:password@db:3306/device_management'
+    env_file:
+      - .env
     ports:
       - '80:3000'
     depends_on:
       - db
 
   db:
-    image: mysql:8.0
+    image: mysql:5.7
     restart: always
     platform: linux/amd64
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: device_management
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: eldorado_challenge
+      MYSQL_USER: eldorado_user
+      MYSQL_PASSWORD: eldorado_password
     ports:
       - '3306:3306'
     volumes:
