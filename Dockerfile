@@ -23,6 +23,10 @@ FROM node:20.12.2-slim
 
 WORKDIR /home/node/app
 
+ARG NODE_ENV
+ARG DATABASE_URL
+ARG PORT
+
 # Create non-root user
 RUN mkdir -p /home/node/app \
     && chown -R node:node /home/node/app
@@ -35,8 +39,9 @@ COPY --from=builder /app/prisma      ./prisma
 
 USER node
 
-ENV NODE_ENV=production \
-    PORT=3000
+ENV NODE_ENV=${NODE_ENV} \
+    DATABASE_URL=${DATABASE_URL} \
+    PORT=${PORT}
 
 EXPOSE 3000
 
