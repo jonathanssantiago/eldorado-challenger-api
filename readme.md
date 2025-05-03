@@ -1,34 +1,39 @@
 # 📡 Device Management API
 
-This is the backend REST API for the Device Management Web Application built with Node.js, Express, and Prisma ORM.
+This is the backend for the device management application. The API is built using **Node.js**, **Express**, **Prisma ORM**, **MySQL**, and **TypeScript**.
+
+---
 
 ## ✅ Features
 
-- CRUD operations for **Devices** and **Categories**
-- Input validation with DTOs
-- Swagger documentation at `/api/docs`
-- MySQL database with Prisma ORM
-- Docker-ready
+- ✅ **CRUD** for **Categories**
+- ✅ **CRUD** for **Devices**
+- ✅ Validation using **DTOs**
+- ✅ **Swagger Documentation** available at `/api/docs`
+- ✅ Integration with **MySQL** via **Prisma ORM**
+- ✅ Ready for use with **Docker**
 
 ---
 
-## ⚙️ Technologies
+## 📦 Technologies Used
 
-- Node.js (LTS)
-- Express
-- Prisma ORM
-- MySQL
-- Swagger (OpenAPI)
-- TypeScript
+- [Node.js (LTS)](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [Prisma ORM](https://www.prisma.io/)
+- [MySQL](https://www.mysql.com/)
+- [Swagger](https://swagger.io/tools/swagger-ui/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Docker (optional)](https://www.docker.com/)
 
 ---
 
-## 📦 Installation
+## 🚀 Installation
 
-1. **Clone the repository**
-2. Install dependencies:
+### 1. Clone the repository
 
 ```bash
-cd backend
-npm install
+git clone https://github.com/your-username/device-management-backend.git
+cd device-management-backend
+
+
 ```

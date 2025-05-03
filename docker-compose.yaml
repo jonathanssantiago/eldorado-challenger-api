@@ -11,5 +11,16 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
+  backend:
+    build: ./
+    depends_on:
+      - mysql
+    environment:
+      DATABASE_URL: mysql://root:root@mysql:3306/device_management
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./:/app
+
 volumes:
   db_data:
