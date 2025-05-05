@@ -2,7 +2,7 @@
 
 This is the backend for the device management application. The API is built using **Node.js**, **Express**, **Prisma ORM**, **MySQL**, and **TypeScript**.
 
-- URL BACKEND AWS: http://ec2-52-201-224-87.compute-1.amazonaws.com
+- URL BACKEND AWS: http://ec2-54-162-90-177.compute-1.amazonaws.com
 
 ---
 

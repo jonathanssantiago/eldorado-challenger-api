@@ -27,13 +27,12 @@ export const createDevice = async (req: Request, res: Response) => {
       data: { color, partNumber, categoryId },
     });
 
-    res.status(201).json(device);
+    res.status(201).json(device).send();
   } catch (error) {
     if (error.code === 'P2003') {
       res.status(400).json({ error: 'Invalid category ID' });
     }
     res.status(500).json({ error: 'Internal server error' });
-    return;
   }
 };
 

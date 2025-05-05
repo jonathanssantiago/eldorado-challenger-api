@@ -24,11 +24,10 @@ export const createCategory = async (
     await prisma.category.create({
       data: { name },
     });
-    res.status(201);
+    res.status(201).send();
   } catch (error) {
     res.status(500).json({ error: 'Internal server error' });
   }
-  return;
 };
 
 export const deleteCategory = async (req: Request, res: Response) => {
@@ -49,6 +48,5 @@ export const deleteCategory = async (req: Request, res: Response) => {
       }
     }
     res.status(500).json({ error: 'Internal server error' });
-    return;
   }
 };
