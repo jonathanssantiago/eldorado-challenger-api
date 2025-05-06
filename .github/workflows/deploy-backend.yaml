@@ -27,6 +27,11 @@ jobs:
         with:
           context: .
           push: true
+          platforms: linux/amd64
           tags: |
-            ${{ secrets.DOCKER_IMAGE_NAME }}:latest
-            ${{ secrets.DOCKER_IMAGE_NAME }}:${{ github.sha }}
+            jonathanssantiagodev/eldorado-challenge-api:latest
+            jonathanssantiagodev/eldorado-challenge-api:${{ github.sha }}
+          build-args: |
+            NODE_ENV=production
+            PORT=3000
+            DATABASE_URL=mysql://aaa:bbb@eldorado-db.ccsda.us-east-1.rds.amazonaws.com:3306/ccc
