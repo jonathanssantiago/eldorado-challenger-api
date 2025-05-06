@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS device_management;
+CREATE DATABASE IF NOT EXISTS eldorado_challenge;
 
-USE device_management;
+USE eldorado_challenge;
 
 CREATE TABLE categories (
   id INT AUTO_INCREMENT PRIMARY KEY,
