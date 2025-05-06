@@ -33,5 +33,5 @@ jobs:
             jonathanssantiagodev/eldorado-challenge-api:${{ github.sha }}
           build-args: |
             NODE_ENV=production
-            PORT=3000
-            DATABASE_URL=mysql://aaa:bbb@eldorado-db.ccsda.us-east-1.rds.amazonaws.com:3306/ccc
+            PORT=${{ secrets.BACKEND_PORT }}
+            DATABASE_URL=${{ secrets.DATABASE_URL }}
